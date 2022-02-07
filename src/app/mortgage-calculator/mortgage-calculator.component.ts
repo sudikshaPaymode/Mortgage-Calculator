@@ -27,15 +27,12 @@ export class MortgageCalculatorComponent implements OnInit {
   }
 
   public calculateMortgage(): void{
-    console.log(this.mortgageForm.value);
     this.showMortgageDetails = true;
     const principal = this.mortgageForm.controls.mortgageAmount.value;
     const interestRate = this.mortgageForm.controls.interestRate.value;
     const amotizationYears = parseInt(this.mortgageForm.controls.amortizationPeriodYears.value.split(' ')[0], 10);
     const numberOfMortgagePayments = this.mortgageForm.controls.paymentFrequency.value === 'Monthly'
       ? amotizationYears * 12 : amotizationYears * 24;
-    // @ts-ignore
-    // tslint:disable-next-line:no-bitwise
     this.mortgagePayment = ((principal / numberOfMortgagePayments) + interestRate).toFixed(2);
   }
 
