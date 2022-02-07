@@ -1,0 +1,74 @@
+<div class="mortgage-form">
+  <form [formGroup]= "mortgageForm" class="mortgage-form-container">
+    <div class="mortgage-form-container__header">
+      Mortgage Calculator
+    </div>
+
+    <div class="mortgage-form-container__container">
+      <div class="mortgage-field">
+        <label for="mortgage-amount">Mortgage Amount: </label>
+        <input id="mortgageAmount" type="number" formControlName="mortgageAmount">
+      </div>
+
+      <div class="mortgage-field">
+        <label for="interest-rate">Interest Rate: </label>
+        <input id="interestRate" type="number" formControlName="interestRate">
+      </div>
+
+      <div class="mortgage-field">
+        <label for="amortization-period">Amortization Period:
+        </label>
+        <select class="mortgage-field-select amortization-years-dropdown" (change)="changeAmortizationYears($event)" formControlName="amortizationPeriodYears">
+          <option value="" disabled>Choose Amortization years</option>
+          <option *ngFor="let year of amortizationYears" [value]="year">{{year}}</option>
+        </select>
+        <select class="mortgage-field-select" (change)="changeAmortizationMonths($event)" formControlName="amortizationPeriodMonths">
+          <option value="" disabled>Choose Amortization months</option>
+          <option *ngFor="let month of amortizationMonths" [value]="month">{{month}}</option>
+        </select>
+      </div>
+
+      <div class="mortgage-field">
+        <label for="payment-frequency">Payment Frequency: </label>
+        <select class="mortgage-field-select" (change)="changePaymentFrequency($event)" formControlName="paymentFrequency">
+          <option value="" disabled>Choose Payment Frequency</option>
+          <option *ngFor="let paymentFrequency of paymentFrequencyOptions" [value]="paymentFrequency">{{paymentFrequency}}</option>
+        </select>
+      </div>
+
+      <div class="mortgage-calculate-button">
+        <button (click)= "calculateMortgage()" mat-raised-button color="primary">Calculate</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="mortgage-details" *ngIf="showMortgageDetails">
+    <div class="mortgage-details__header">
+      Mortgage Details
+    </div>
+
+    <div class="mortgage-details__container">
+      <div class="mortgage-field">
+        <label>Mortgage Amount: </label>
+        <div class="mortgage-field-details">{{mortgageForm.controls.mortgageAmount.value}}</div>
+      </div>
+
+      <div class="mortgage-field">
+        <label>Interest Rate: </label>
+        <div class="mortgage-field-details">{{mortgageForm.controls.interestRate.value}}</div>
+      </div>
+
+      <div class="mortgage-field">
+        <label>Amortization period: </label>
+        <div class="mortgage-field-details">{{mortgageForm.controls.amortizationPeriodYears.value}} {{mortgageForm.controls.amortizationPeriodMonths?.value}}</div>
+      </div>
+
+      <div class="mortgage-field">
+        <label>Payment Frequency: </label>
+        <div class="mortgage-field-details">{{mortgageForm.controls.paymentFrequency.value}}</div>
+      </div>
+
+      <div class="mortgage-field-total"> Your {{mortgageForm.controls.paymentFrequency.value}} payment will be ${{mortgagePayment}}</div>
+    </div>
+  </div>
+</div>

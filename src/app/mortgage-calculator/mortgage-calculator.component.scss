@@ -1,0 +1,100 @@
+.mortgage-form{
+  padding: 10px;
+  .mortgage-form-container{
+    padding: 10px;
+    max-width: 720px;
+    border: 1px solid black;
+    &__header{
+      color: #5f5fad;
+      font-size: 35px;
+      text-align: center;
+      font-family: sans-serif;
+      padding: 10px;
+    }
+    &__container{
+      font-size: 20px;
+      font-family: sans-serif;
+      padding: 10px;
+
+      .mortgage-field{
+        display: flex;
+        justify-content: flex-end;
+        padding: .5em;
+      }
+      .mortgage-field > label {
+        padding: .5em 1em .5em 0;
+        flex: 1;
+      }
+      .mortgage-field > input {
+        flex: 2;
+      }
+      .mortgage-field .mortgage-field-details {
+        flex: 2;
+      }
+      .mortgage-field .custom-select{
+        flex: 2;
+      }
+      .mortgage-field-select{
+        width:220px;
+      }
+      .amortization-years-dropdown{
+        margin-right: 10px;
+      }
+      .mortgage-calculate-button{
+        text-align: center;
+        margin: 10px;
+      }
+    }
+  }
+
+  .mortgage-details{
+    margin-top: 10px;
+    padding: 10px;
+    max-width: 720px;
+    border: 1px solid black;
+    &__header{
+      color: #5f5fad;
+      font-size: 35px;
+      text-align: center;
+      font-family: sans-serif;
+      padding: 10px;
+    }
+    &__container{
+      font-size: 20px;
+      font-family: sans-serif;
+      padding: 10px;
+
+      .mortgage-field{
+        display: flex;
+        justify-content: flex-end;
+        padding: .5em;
+      }
+      .mortgage-field > label {
+        padding: .5em 1em .5em 0;
+        flex: 1;
+      }
+      .mortgage-field > input {
+        flex: 2;
+      }
+      .mortgage-field .mortgage-field-details {
+        flex: 2;
+      }
+      .mortgage-field .custom-select{
+        flex: 2;
+      }
+      .mortgage-field-select{
+        width:220px;
+      }
+      .amortization-years-dropdown{
+        margin-right: 10px;
+      }
+      .mortgage-field-total{
+        background-color: #e3e3ef;
+        padding: 10px;
+        width: 400px;
+        height:20px;
+        color:#5f5fad;
+      }
+    }
+  }
+}
